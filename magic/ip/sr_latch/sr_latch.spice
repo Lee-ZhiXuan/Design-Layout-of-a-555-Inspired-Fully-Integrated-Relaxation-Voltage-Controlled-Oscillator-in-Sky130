@@ -1,0 +1,79 @@
+* SPICE3 file created from sr_latch.ext - technology: sky130A
+
+.subckt sky130_fd_pr__nfet_MJHEWA D S G VSUBS
+X0 S G D VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+C0 S D 0.16211f
+C1 G D 0.01549f
+C2 G S 0.01549f
+C3 S VSUBS 0.11555f
+C4 D VSUBS 0.11555f
+C5 G VSUBS 0.20353f
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_H3PEXU_abut1 D G a_15_n164# w_n109_n264# VSUBS
+X0 a_15_n164# G D w_n109_n264# sky130_fd_pr__pfet_01v8 ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=0.15
+C0 w_n109_n264# D 0.01509f
+C1 G a_15_n164# 0.00372f
+C2 w_n109_n264# G 0.06468f
+C3 D a_15_n164# 0.01112f
+C4 D G 0.01942f
+C5 D VSUBS 0.32871f
+C6 G VSUBS 0.14354f
+C7 w_n109_n264# VSUBS 0.36755f
+.ends
+
+.subckt sky130_fd_pr__nfet_MJHEWA_abut1 S G a_n73_n131# VSUBS
+X0 S G a_n73_n131# VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+C0 S G 0.01549f
+C1 a_n73_n131# G 0.00268f
+C2 a_n73_n131# S 0.00603f
+C3 S VSUBS 0.18775f
+C4 G VSUBS 0.20527f
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_H3PEXU_abut2 S G a_n73_n164# w_n109_n264# VSUBS
+X0 S G a_n73_n164# w_n109_n264# sky130_fd_pr__pfet_01v8 ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=0.15
+C0 w_n109_n264# S 0.01509f
+C1 G a_n73_n164# 0.00372f
+C2 w_n109_n264# G 0.06468f
+C3 S a_n73_n164# 0.01112f
+C4 S G 0.01942f
+C5 S VSUBS 0.32871f
+C6 G VSUBS 0.14354f
+C7 w_n109_n264# VSUBS 0.36755f
+.ends
+
+.subckt sr_latch VDD VSS R S NEG POS
+Xsky130_fd_pr__nfet_MJHEWA_0 VSS POS S VSS sky130_fd_pr__nfet_MJHEWA
+Xsky130_fd_pr__nfet_MJHEWA_1 VSS NEG POS VSS sky130_fd_pr__nfet_MJHEWA
+Xsky130_fd_pr__pfet_01v8_H3PEXU_abut1_0 VDD S sky130_fd_pr__pfet_01v8_H3PEXU_abut1_0/a_15_n164#
++ VDD VSS sky130_fd_pr__pfet_01v8_H3PEXU_abut1
+Xsky130_fd_pr__pfet_01v8_H3PEXU_abut1_1 NEG POS sky130_fd_pr__pfet_01v8_H3PEXU_abut1_1/a_15_n164#
++ VDD VSS sky130_fd_pr__pfet_01v8_H3PEXU_abut1
+Xsky130_fd_pr__nfet_MJHEWA_abut1_0 VSS NEG POS VSS sky130_fd_pr__nfet_MJHEWA_abut1
+Xsky130_fd_pr__nfet_MJHEWA_abut1_1 VSS R NEG VSS sky130_fd_pr__nfet_MJHEWA_abut1
+Xsky130_fd_pr__pfet_01v8_H3PEXU_abut2_0 POS NEG sky130_fd_pr__pfet_01v8_H3PEXU_abut1_0/a_15_n164#
++ VDD VSS sky130_fd_pr__pfet_01v8_H3PEXU_abut2
+Xsky130_fd_pr__pfet_01v8_H3PEXU_abut2_1 VDD R sky130_fd_pr__pfet_01v8_H3PEXU_abut1_1/a_15_n164#
++ VDD VSS sky130_fd_pr__pfet_01v8_H3PEXU_abut2
+C0 POS S 0.06253f
+C1 VDD R 0.17197f
+C2 NEG S 0.23127f
+C3 POS sky130_fd_pr__pfet_01v8_H3PEXU_abut1_0/a_15_n164# 0.01015f
+C4 sky130_fd_pr__pfet_01v8_H3PEXU_abut1_1/a_15_n164# POS 0.00601f
+C5 POS NEG 1.03761f
+C6 sky130_fd_pr__pfet_01v8_H3PEXU_abut1_1/a_15_n164# NEG 0.00526f
+C7 VDD S 0.17233f
+C8 POS R 0.30062f
+C9 NEG R 0.09808f
+C10 VDD sky130_fd_pr__pfet_01v8_H3PEXU_abut1_0/a_15_n164# 0.01058f
+C11 VDD POS 0.36421f
+C12 VDD sky130_fd_pr__pfet_01v8_H3PEXU_abut1_1/a_15_n164# 0.01058f
+C13 VDD NEG 0.30409f
+C14 R VSS 0.33923f
+C15 VDD VSS 3.3794f
+C16 POS VSS 0.5916f
+C17 NEG VSS 0.62754f
+C18 S VSS 0.33754f
+.ends
+

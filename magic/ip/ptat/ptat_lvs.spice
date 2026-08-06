@@ -1,0 +1,3 @@
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /home/zhixuan/projects/fyp_vco/magic/ip/ptat/ptat.spice
+.end

@@ -1,0 +1,95 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1773499551
+<< nwell >>
+rect -50 -600 370 520
+<< pwell >>
+rect -50 -710 370 -600
+<< psubdiff >>
+rect -34 -680 -10 -630
+rect 330 -680 354 -630
+<< psubdiffcont >>
+rect -10 -680 330 -630
+<< locali >>
+rect -26 -680 -10 -630
+rect 330 -680 346 -630
+<< viali >>
+rect -20 100 20 370
+rect 300 100 340 370
+rect -20 -450 20 -180
+rect 300 -450 340 -180
+rect -10 -680 330 -630
+<< metal1 >>
+rect -50 520 370 580
+rect -30 370 30 520
+rect 290 370 350 520
+rect -30 126 -20 370
+rect 20 126 30 370
+rect 60 170 110 370
+rect 200 170 260 370
+rect -32 74 -26 126
+rect 26 74 32 126
+rect -30 70 30 74
+rect 60 20 100 170
+rect 210 130 260 170
+rect 140 80 260 130
+rect -50 -20 100 20
+rect -50 -100 100 -60
+rect -30 -154 30 -150
+rect -32 -206 -26 -154
+rect 26 -206 32 -154
+rect 60 -180 100 -100
+rect -30 -450 -20 -206
+rect 20 -450 30 -206
+rect 60 -310 110 -180
+rect 210 -201 260 80
+rect 209 -207 260 -201
+rect 60 -380 120 -310
+rect 210 -420 260 -207
+rect -30 -480 30 -450
+rect 140 -470 260 -420
+rect 290 100 300 370
+rect 340 100 350 370
+rect 290 -180 350 100
+rect 290 -450 300 -180
+rect 340 -450 350 -180
+rect 290 -480 350 -450
+rect -30 -630 350 -620
+rect -30 -680 -10 -630
+rect 330 -680 350 -630
+rect -30 -710 350 -680
+rect -50 -770 370 -710
+<< via1 >>
+rect -26 100 -20 126
+rect -20 100 20 126
+rect 20 100 26 126
+rect -26 74 26 100
+rect -26 -180 26 -154
+rect -26 -206 -20 -180
+rect -20 -206 20 -180
+rect 20 -206 26 -180
+<< metal2 >>
+rect -26 126 26 132
+rect -26 68 26 74
+rect -20 -148 20 68
+rect -26 -154 26 -148
+rect -26 -212 26 -206
+use sky130_fd_pr__pfet_01v8_KTLF94  sky130_fd_pr__pfet_01v8_KTLF94_0
+timestamp 1773492243
+transform 1 0 161 0 1 234
+box -211 -284 211 284
+use sky130_fd_pr__pfet_01v8_KTLF94  sky130_fd_pr__pfet_01v8_KTLF94_1
+timestamp 1773492243
+transform 1 0 161 0 1 -316
+box -211 -284 211 284
+<< labels >>
+flabel metal1 -50 -20 -10 20 0 FreeSans 240 0 0 0 HIGH
+port 1 nsew
+flabel metal1 -50 530 -10 570 0 FreeSans 240 0 0 0 VDD
+port 2 nsew
+flabel metal1 -50 -760 -10 -720 0 FreeSans 240 0 0 0 VSS
+port 3 nsew
+flabel metal1 -50 -100 -10 -60 0 FreeSans 240 0 0 0 LOW
+port 4 nsew
+<< end >>

@@ -1,0 +1,33 @@
+* SPICE3 file created from pseudo_res.ext - technology: sky130A
+
+.subckt sky130_fd_pr__pfet_01v8_KTLF94 B D S G VSUBS
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+C0 D S 0.16211f
+C1 S B 0.08583f
+C2 S G 0.01459f
+C3 D B 0.08583f
+C4 D G 0.01459f
+C5 G B 0.14357f
+C6 S VSUBS 0.05173f
+C7 D VSUBS 0.05173f
+C8 G VSUBS 0.08026f
+C9 B VSUBS 1.10443f
+.ends
+
+.subckt pseudo_res HIGH VDD VSS LOW
+Xsky130_fd_pr__pfet_01v8_KTLF94_0 VDD HIGH sky130_fd_pr__pfet_01v8_KTLF94_1/S sky130_fd_pr__pfet_01v8_KTLF94_1/S
++ VSS sky130_fd_pr__pfet_01v8_KTLF94
+Xsky130_fd_pr__pfet_01v8_KTLF94_1 VDD LOW sky130_fd_pr__pfet_01v8_KTLF94_1/S sky130_fd_pr__pfet_01v8_KTLF94_1/S
++ VSS sky130_fd_pr__pfet_01v8_KTLF94
+C0 sky130_fd_pr__pfet_01v8_KTLF94_1/S HIGH 0.0691f
+C1 LOW VDD 0.22969f
+C2 LOW HIGH 0.07689f
+C3 LOW sky130_fd_pr__pfet_01v8_KTLF94_1/S 0.03568f
+C4 HIGH VDD 0.2925f
+C5 sky130_fd_pr__pfet_01v8_KTLF94_1/S VDD 0.57935f
+C6 VDD VSS 2.69782f
+C7 sky130_fd_pr__pfet_01v8_KTLF94_1/S VSS 0.14542f
+C8 LOW VSS 0.03943f
+C9 HIGH VSS 0.02447f
+.ends
+

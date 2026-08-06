@@ -1,0 +1,41 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1773214528
+<< error_s >>
+rect 80 53 138 59
+rect 640 53 698 59
+rect 1140 53 1198 59
+rect 80 19 92 53
+rect 640 19 652 53
+rect 1140 19 1152 53
+rect 80 13 138 19
+rect 640 13 698 19
+rect 1140 13 1198 19
+rect 364 -272 422 -266
+rect 474 -272 532 -266
+rect 364 -306 376 -272
+rect 474 -306 486 -272
+rect 364 -312 422 -306
+rect 474 -312 532 -306
+use sky130_fd_pr__nfet_MJHEWA  sky130_fd_pr__nfet_01v8_MJHEWA_0
+timestamp 1773195828
+transform 1 0 393 0 1 -413
+box -73 -157 73 157
+use sky130_fd_pr__nfet_MJHEWA_abut1  sky130_fd_pr__nfet_MJHEWA_abut1_0
+timestamp 1773196000
+transform 1 0 503 0 1 -413
+box -73 -157 73 157
+use sky130_fd_pr__pfet_01v8_H3PEXU  sky130_fd_pr__pfet_01v8_H3PEXU_0
+timestamp 1773195395
+transform 1 0 109 0 1 264
+box -109 -264 109 298
+use sky130_fd_pr__pfet_01v8_H3PEXU_abut1  sky130_fd_pr__pfet_01v8_H3PEXU_abut1_0
+timestamp 1773195572
+transform 1 0 669 0 1 264
+box -109 -264 109 298
+use sky130_fd_pr__pfet_01v8_H3PEXU_abut2  sky130_fd_pr__pfet_01v8_H3PEXU_abut2_0
+timestamp 1773195657
+transform 1 0 1169 0 1 264
+box -109 -264 109 298
+<< end >>

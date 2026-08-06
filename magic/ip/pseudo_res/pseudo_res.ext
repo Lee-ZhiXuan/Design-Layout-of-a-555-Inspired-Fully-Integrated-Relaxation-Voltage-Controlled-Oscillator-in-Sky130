@@ -1,0 +1,48 @@
+timestamp 1773499551
+version 8.3
+tech sky130A
+style ngspice()
+scale 1000 1 500000
+resistclasses 4400000 2200000 950000 3050000 120000 197000 114000 191000 120000 197000 114000 191000 48200 319800 2000000 48200 48200 12800 125 125 47 47 29 5
+use sky130_fd_pr__pfet_01v8_KTLF94 sky130_fd_pr__pfet_01v8_KTLF94_1 1 0 161 0 1 -316
+use sky130_fd_pr__pfet_01v8_KTLF94 sky130_fd_pr__pfet_01v8_KTLF94_0 1 0 161 0 1 234
+port "LOW" 4 -50 -100 -10 -60 m1
+port "HIGH" 1 -50 -20 -10 20 m1
+port "VDD" 2 -50 530 -10 570 m1
+port "VSS" 3 -50 -760 -10 -720 m1
+node "LOW" 1 29.5264 -50 -100 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 19900 980 0 0 0 0 0 0 0 0 0 0
+node "m1_140_n470#" 2 32.1707 140 -470 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 51006 2082 0 0 0 0 0 0 0 0 0 0
+node "HIGH" 1 16.4781 -50 -20 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22000 1100 0 0 0 0 0 0 0 0 0 0
+node "VDD" 436 978.719 -50 530 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 43200 2480 132416 4656 15296 816 0 0 0 0 0 0 0 0
+node "w_n50_n600#" 2533 1443.21 -50 -600 nw 0 0 0 0 470400 3080 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+substrate "VSS" 0 0 -50 -760 m1 0 0 0 0 0 0 0 0 0 0 19400 876 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18600 844 59400 1140 0 0 0 0 0 0 0 0 0 0
+cap "m1_140_n470#" "LOW" 93.1451
+cap "m1_140_n470#" "w_n50_n600#" 101.216
+cap "HIGH" "VDD" 238.638
+cap "LOW" "w_n50_n600#" 42.3201
+cap "HIGH" "m1_140_n470#" 125.802
+cap "m1_140_n470#" "VDD" 506.891
+cap "HIGH" "LOW" 74.4333
+cap "HIGH" "w_n50_n600#" 42.2632
+cap "LOW" "VDD" 186.039
+cap "w_n50_n600#" "VDD" 186.307
+cap "sky130_fd_pr__pfet_01v8_KTLF94_1/B" "sky130_fd_pr__pfet_01v8_KTLF94_1/D" 1.3324
+cap "sky130_fd_pr__pfet_01v8_KTLF94_1/S" "sky130_fd_pr__pfet_01v8_KTLF94_1/D" -57.467
+cap "sky130_fd_pr__pfet_01v8_KTLF94_1/B" "VSS" 97.5138
+cap "VSS" "sky130_fd_pr__pfet_01v8_KTLF94_1/S" 3.46391
+cap "sky130_fd_pr__pfet_01v8_KTLF94_0/D" "sky130_fd_pr__pfet_01v8_KTLF94_1/D" 2.45297
+cap "sky130_fd_pr__pfet_01v8_KTLF94_1/B" "sky130_fd_pr__pfet_01v8_KTLF94_1/S" -28.7584
+cap "VSS" "sky130_fd_pr__pfet_01v8_KTLF94_1/D" 1.8537
+cap "sky130_fd_pr__pfet_01v8_KTLF94_1/B" "sky130_fd_pr__pfet_01v8_KTLF94_0/D" 11.6035
+cap "sky130_fd_pr__pfet_01v8_KTLF94_1/S" "sky130_fd_pr__pfet_01v8_KTLF94_0/D" -56.6979
+merge "sky130_fd_pr__pfet_01v8_KTLF94_0/D" "HIGH" -43.732 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3200 -432 0 0 0 0 0 0 0 0 0 0
+merge "sky130_fd_pr__pfet_01v8_KTLF94_0/B" "sky130_fd_pr__pfet_01v8_KTLF94_1/B" -2030.48 0 0 0 0 -477156 -3956 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -36720 -2432 0 0 0 0 0 0 0 0 0 0 0 0
+merge "sky130_fd_pr__pfet_01v8_KTLF94_1/B" "VDD"
+merge "VDD" "w_n50_n600#"
+merge "sky130_fd_pr__pfet_01v8_KTLF94_0/G" "sky130_fd_pr__pfet_01v8_KTLF94_0/S" -154.194 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -13806 -1278 0 0 0 0 0 0 0 0 0 0
+merge "sky130_fd_pr__pfet_01v8_KTLF94_0/S" "sky130_fd_pr__pfet_01v8_KTLF94_1/G"
+merge "sky130_fd_pr__pfet_01v8_KTLF94_1/G" "sky130_fd_pr__pfet_01v8_KTLF94_1/S"
+merge "sky130_fd_pr__pfet_01v8_KTLF94_1/S" "m1_140_n470#"
+merge "sky130_fd_pr__pfet_01v8_KTLF94_0/VSUBS" "sky130_fd_pr__pfet_01v8_KTLF94_1/VSUBS" -350.111 0 0 0 0 0 0 0 0 0 0 -19400 -876 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -18600 -844 -59400 -1140 0 0 0 0 0 0 0 0 0 0
+merge "sky130_fd_pr__pfet_01v8_KTLF94_1/VSUBS" "VSS"
+merge "sky130_fd_pr__pfet_01v8_KTLF94_1/D" "LOW" -43.6729 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3900 -452 0 0 0 0 0 0 0 0 0 0

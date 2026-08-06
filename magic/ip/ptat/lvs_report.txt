@@ -1,0 +1,114 @@
+
+Circuit 1 cell sky130_fd_pr__nfet_01v8 and Circuit 2 cell sky130_fd_pr__nfet_01v8 are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__nfet_01v8 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__nfet_01v8         |Circuit 2: sky130_fd_pr__nfet_01v8         
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__nfet_01v8 and sky130_fd_pr__nfet_01v8 are equivalent.
+
+Circuit 1 cell sky130_fd_pr__res_xhigh_po_0p35 and Circuit 2 cell sky130_fd_pr__res_xhigh_po_0p35 are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__res_xhigh_po_0p35 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__res_xhigh_po_0p35 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__res_xhigh_po_0p35 |Circuit 2: sky130_fd_pr__res_xhigh_po_0p35 
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__res_xhigh_po_0p35 and sky130_fd_pr__res_xhigh_po_0p35 are equivalent.
+
+Circuit 1 cell sky130_fd_pr__pfet_01v8 and Circuit 2 cell sky130_fd_pr__pfet_01v8 are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8 is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8 is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__pfet_01v8         |Circuit 2: sky130_fd_pr__pfet_01v8         
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__pfet_01v8 and sky130_fd_pr__pfet_01v8 are equivalent.
+Flattening unmatched subcell sky130_fd_pr__nfet_01v8_KXES5E in circuit ptat_test (0)(3 instances)
+Flattening unmatched subcell sky130_fd_pr__nfet_01v8_44FS3R in circuit ptat_test (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__res_xhigh_po_0p35_S4LC8G in circuit ptat_test (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__nfet_01v8_SWJJUK in circuit ptat_test (0)(3 instances)
+Flattening unmatched subcell sky130_fd_pr__pfet_01v8_3CTS57_mod1 in circuit ptat_test (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__pfet_01v8_LBPW5X_mod1 in circuit ptat_test (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__pfet_01v8_57LS5R in circuit ptat_test (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__pfet_01v8_3CBY59 in circuit ptat_test (0)(4 instances)
+Flattening unmatched subcell sky130_fd_pr__pfet_01v8_PB76X2 in circuit ptat_test (0)(4 instances)
+Flattening unmatched subcell sky130_fd_pr__nfet_01v8_FBEKU3 in circuit ptat_test (0)(1 instance)
+Flattening unmatched subcell sky130_fd_pr__nfet_01v8_B6AF5W in circuit ptat_test (0)(1 instance)
+
+Class ptat_test (0):  Merged 27 parallel devices.
+Subcircuit summary:
+Circuit 1: ptat_test                       |Circuit 2: sym_ptat                        
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__nfet_01v8 (22->6)            |sky130_fd_pr__nfet_01v8 (5) **Mismatch**   
+sky130_fd_pr__res_xhigh_po_0p35 (1)        |sky130_fd_pr__res_xhigh_po_0p35 (1)        
+sky130_fd_pr__pfet_01v8 (17->6)            |sky130_fd_pr__pfet_01v8 (5) **Mismatch**   
+Number of devices: 13 **Mismatch**         |Number of devices: 11 **Mismatch**         
+Number of nets: 10                         |Number of nets: 10                         
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: ptat_test                       |Circuit 2: sym_ptat                        
+
+---------------------------------------------------------------------------------------
+Net: VSS                                   |Net: VSS                                   
+  sky130_fd_pr__nfet_01v8/4 = 6            |  sky130_fd_pr__nfet_01v8/4 = 5            
+  sky130_fd_pr__nfet_01v8/(1|3) = 4        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        
+  sky130_fd_pr__res_xhigh_po_0p35/(1|2) =  |  sky130_fd_pr__res_xhigh_po_0p35/(1|2) =  
+  sky130_fd_pr__res_xhigh_po_0p35/3 = 1    |  sky130_fd_pr__res_xhigh_po_0p35/3 = 1    
+  sky130_fd_pr__nfet_01v8/2 = 1            |                                           
+                                           |                                           
+Net: VDD                                   |Net: VDD                                   
+  sky130_fd_pr__pfet_01v8/(1|3) = 5        |  sky130_fd_pr__pfet_01v8/(1|3) = 3        
+  sky130_fd_pr__pfet_01v8/4 = 6            |  sky130_fd_pr__pfet_01v8/4 = 5            
+  sky130_fd_pr__pfet_01v8/2 = 1            |                                           
+---------------------------------------------------------------------------------------
+DEVICE mismatches: Class fragments follow (with node fanout counts):
+Circuit 1: ptat_test                       |Circuit 2: sym_ptat                        
+
+---------------------------------------------------------------------------------------
+Instance: sky130_fd_pr__nfet_01v8_KXES5E_4 |(no matching instance)                     
+  (1,3) = (13,13)                          |                                           
+  2 = 13                                   |                                           
+  4 = 13                                   |                                           
+                                           |                                           
+                                           |                                           
+Instance: sky130_fd_pr__pfet_01v8_3CBY59_1 |(no matching instance)                     
+  (1,3) = (12,12)                          |                                           
+  2 = 12                                   |                                           
+  4 = 12                                   |                                           
+                                           |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Port matching may fail to disambiguate symmetries.
+
+Subcircuit pins:
+Circuit 1: ptat_test                       |Circuit 2: sym_ptat                        
+-------------------------------------------|-------------------------------------------
+VSS                                        |VSS                                        
+VDD                                        |VDD                                        
+BIAS_P                                     |BIAS_P                                     
+BIAS_N                                     |BIAS_N                                     
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes ptat_test and sym_ptat are equivalent.
+
+Final result: Netlists do not match.
+Port matching may fail to disambiguate symmetries.
