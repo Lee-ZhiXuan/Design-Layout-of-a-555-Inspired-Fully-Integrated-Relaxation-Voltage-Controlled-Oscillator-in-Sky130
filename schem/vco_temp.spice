@@ -1,0 +1,43 @@
+** sch_path: /home/zhixuan/projects/fyp_vco/schem/temp_full_tb.sch
+**.subckt temp_full_tb
+vdd net1 GND 1.8
+C2 VDD GND 10n m=1
+R8 VDD net1 5 m=1
+vctrl net2 GND 0.85
+x2 VDD GND VOUT net2 vco_pex
+**** begin user architecture code
+
+
+.include /home/zhixuan/projects/fyp_vco/magic/full/vco_pex.spice
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.temp TEMP_PLACEHOLDER
+
+.tran 0.1n 2u
+.save all
+
+.control
+    run
+
+    meas tran t11 when VOUT=0.9 rise=2
+    meas tran t21 when VOUT=0.9 rise=3
+
+    if t11 > 0 and t21 > t11
+        let period1 = t21 - t11
+        let freq1 = 1 / period1
+        meas tran idd1 avg i(vdd) from=t11 to=2u
+        let idd1 = abs(idd1)
+        echo RESULT freq1 $&freq1 idd1 $&idd1
+    else
+        echo RESULT FAILED
+    end
+
+.endc
+
+.end
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

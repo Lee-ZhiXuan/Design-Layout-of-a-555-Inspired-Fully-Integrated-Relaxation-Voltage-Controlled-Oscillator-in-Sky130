@@ -1,0 +1,25 @@
+** sch_path: /home/zhixuan/projects/fyp_vco/schem/symbol_repo/sym_ptat.sch
+.subckt sym_ptat VDD VSS BIAS_P BIAS_N
+XMN_ptat2 net6 net1 net2 VSS sky130_fd_pr__nfet_01v8 L=0.5 W=2 nf=2 ad=0.29 as=0.58 pd=2.58 ps=5.16 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=1 m=1
+XMP_diode1 net3 BIAS_P VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=2 nf=2 ad=0.29 as=0.58 pd=2.58 ps=5.16 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMP_mir1_l net4 BIAS_P VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=2 nf=2 ad=0.29 as=0.58 pd=2.58 ps=5.16 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMN_diode2 net5 net1 VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=2 nf=4 ad=0.29 as=0.435 pd=3.16 ps=4.74 nrd=0.145 nrs=0.145 sa=0 sb=0
++ sd=0 mult=1 m=1
+XMP_inv BIAS_N BIAS_P VDD VDD sky130_fd_pr__pfet_01v8 L=0.75 W=2 nf=5 ad=0.348 as=0.348 pd=4.14 ps=4.14 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMP_diode2 BIAS_P BIAS_P net3 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=2 nf=2 ad=0.29 as=0.58 pd=2.58 ps=5.16 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMP_mir2_l net1 BIAS_P net4 VDD sky130_fd_pr__pfet_01v8 L=0.5 W=2 nf=2 ad=0.29 as=0.58 pd=2.58 ps=5.16 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMN_ptat1 BIAS_P net1 net6 VSS sky130_fd_pr__nfet_01v8 L=0.5 W=2 nf=2 ad=0.29 as=0.58 pd=2.58 ps=5.16 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMN_diode1 net1 net1 net5 VSS sky130_fd_pr__nfet_01v8 L=0.5 W=2 nf=4 ad=0.29 as=0.435 pd=3.16 ps=4.74 nrd=0.145 nrs=0.145 sa=0
++ sb=0 sd=0 mult=1 m=1
+XMN_inv BIAS_N BIAS_N VSS VSS sky130_fd_pr__nfet_01v8 L=0.75 W=2.5 nf=2 ad=0.3625 as=0.725 pd=3.08 ps=6.16 nrd=0.116 nrs=0.116
++ sa=0 sb=0 sd=0 mult=1 m=1
+XR1 VSS net2 VSS sky130_fd_pr__res_xhigh_po_0p35 L=2.8 mult=1 m=1
+**.ends
+.end

@@ -1,0 +1,3 @@
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /home/zhixuan/projects/fyp_vco/schem/symbol_repo/sym_ptat.spice
+.end
