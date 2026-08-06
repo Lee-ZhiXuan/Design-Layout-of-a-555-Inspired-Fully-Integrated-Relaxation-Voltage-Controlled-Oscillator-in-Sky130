@@ -1,0 +1,37 @@
+* SPICE3 file created from inv_1.ext - technology: sky130A
+
+.subckt sky130_fd_pr__pfet_01v8_LDJG94 B D S G VSUBS
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=0.15
+C0 G B 0.1481f
+C1 G D 0.01942f
+C2 B S 0.15159f
+C3 D S 0.32105f
+C4 D B 0.15159f
+C5 G S 0.01942f
+C6 S VSUBS 0.0922f
+C7 D VSUBS 0.0922f
+C8 G VSUBS 0.07969f
+C9 B VSUBS 1.41416f
+.ends
+
+.subckt sky130_fd_pr__nfet_01v8_J2RCKQ B D S G
+X0 S G D B sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+C0 G D 0.01549f
+C1 S D 0.16211f
+C2 G S 0.01549f
+C3 S B 0.14133f
+C4 D B 0.14133f
+C5 G B 0.2236f
+.ends
+
+.subckt inv_1 VDD VIN VOUT VSS
+Xsky130_fd_pr__pfet_01v8_LDJG94_0 VDD VDD VOUT VIN VSS sky130_fd_pr__pfet_01v8_LDJG94
+Xsky130_fd_pr__nfet_01v8_J2RCKQ_0 VSS VSS VOUT VIN sky130_fd_pr__nfet_01v8_J2RCKQ
+C0 VDD VIN 0.12102f
+C1 VOUT VDD 0.37574f
+C2 VOUT VIN 0.18717f
+C3 VDD VSS 1.8319f
+C4 VOUT VSS 0.4164f
+C5 VIN VSS 0.38975f
+.ends
+
