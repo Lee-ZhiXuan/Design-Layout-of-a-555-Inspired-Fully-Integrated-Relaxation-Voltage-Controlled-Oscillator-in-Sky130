@@ -1,0 +1,144 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1773940924
+<< pwell >>
+rect -616 -1782 616 1782
+<< psubdiff >>
+rect -580 1712 -484 1746
+rect 484 1712 580 1746
+rect -580 1650 -546 1712
+rect 546 1650 580 1712
+rect -580 -1712 -546 -1650
+rect 546 -1712 580 -1650
+rect -580 -1746 -484 -1712
+rect 484 -1746 580 -1712
+<< psubdiffcont >>
+rect -484 1712 484 1746
+rect -580 -1650 -546 1650
+rect 546 -1650 580 1650
+rect -484 -1746 484 -1712
+<< xpolycontact >>
+rect -450 1184 -380 1616
+rect -450 -1616 -380 -1184
+rect -284 1184 -214 1616
+rect -284 -1616 -214 -1184
+rect -118 1184 -48 1616
+rect -118 -1616 -48 -1184
+rect 48 1184 118 1616
+rect 48 -1616 118 -1184
+rect 214 1184 284 1616
+rect 214 -1616 284 -1184
+rect 380 1184 450 1616
+rect 380 -1616 450 -1184
+<< xpolyres >>
+rect -450 -1184 -380 1184
+rect -284 -1184 -214 1184
+rect -118 -1184 -48 1184
+rect 48 -1184 118 1184
+rect 214 -1184 284 1184
+rect 380 -1184 450 1184
+<< locali >>
+rect -580 1712 -484 1746
+rect 484 1712 580 1746
+rect -580 1650 -546 1712
+rect 546 1650 580 1712
+rect -580 -1712 -546 -1650
+rect 546 -1712 580 -1650
+rect -580 -1746 -484 -1712
+rect 484 -1746 580 -1712
+<< viali >>
+rect -434 1201 -396 1598
+rect -268 1201 -230 1598
+rect -102 1201 -64 1598
+rect 64 1201 102 1598
+rect 230 1201 268 1598
+rect 396 1201 434 1598
+rect -434 -1598 -396 -1201
+rect -268 -1598 -230 -1201
+rect -102 -1598 -64 -1201
+rect 64 -1598 102 -1201
+rect 230 -1598 268 -1201
+rect 396 -1598 434 -1201
+<< metal1 >>
+rect -440 1598 -390 1610
+rect -440 1201 -434 1598
+rect -396 1201 -390 1598
+rect -440 1189 -390 1201
+rect -274 1598 -224 1610
+rect -274 1201 -268 1598
+rect -230 1201 -224 1598
+rect -274 1189 -224 1201
+rect -108 1598 -58 1610
+rect -108 1201 -102 1598
+rect -64 1201 -58 1598
+rect -108 1189 -58 1201
+rect 58 1598 108 1610
+rect 58 1201 64 1598
+rect 102 1201 108 1598
+rect 58 1189 108 1201
+rect 224 1598 274 1610
+rect 224 1201 230 1598
+rect 268 1201 274 1598
+rect 224 1189 274 1201
+rect 390 1598 440 1610
+rect 390 1201 396 1598
+rect 434 1201 440 1598
+rect 390 1189 440 1201
+rect -440 -1201 -390 -1189
+rect -440 -1598 -434 -1201
+rect -396 -1598 -390 -1201
+rect -440 -1610 -390 -1598
+rect -274 -1201 -224 -1189
+rect -274 -1598 -268 -1201
+rect -230 -1598 -224 -1201
+rect -274 -1610 -224 -1598
+rect -108 -1201 -58 -1189
+rect -108 -1598 -102 -1201
+rect -64 -1598 -58 -1201
+rect -108 -1610 -58 -1598
+rect 58 -1201 108 -1189
+rect 58 -1598 64 -1201
+rect 102 -1598 108 -1201
+rect 58 -1610 108 -1598
+rect 224 -1201 274 -1189
+rect 224 -1598 230 -1201
+rect 268 -1598 274 -1201
+rect 224 -1610 274 -1598
+rect 390 -1201 440 -1189
+rect 390 -1598 396 -1201
+rect 434 -1598 440 -1201
+rect 390 -1610 440 -1598
+<< labels >>
+rlabel psubdiffcont 0 -1729 0 -1729 0 B
+port 1 nsew
+rlabel xpolycontact -415 1581 -415 1581 0 R1_0
+port 2 nsew
+rlabel xpolycontact -415 -1581 -415 -1581 0 R2_0
+port 3 nsew
+rlabel xpolycontact -249 1581 -249 1581 0 R1_1
+port 4 nsew
+rlabel xpolycontact -249 -1581 -249 -1581 0 R2_1
+port 5 nsew
+rlabel xpolycontact -83 1581 -83 1581 0 R1_2
+port 6 nsew
+rlabel xpolycontact -83 -1581 -83 -1581 0 R2_2
+port 7 nsew
+rlabel xpolycontact 83 1581 83 1581 0 R1_3
+port 8 nsew
+rlabel xpolycontact 83 -1581 83 -1581 0 R2_3
+port 9 nsew
+rlabel xpolycontact 249 1581 249 1581 0 R1_4
+port 10 nsew
+rlabel xpolycontact 249 -1581 249 -1581 0 R2_4
+port 11 nsew
+rlabel xpolycontact 415 1581 415 1581 0 R1_5
+port 12 nsew
+rlabel xpolycontact 415 -1581 415 -1581 0 R2_5
+port 13 nsew
+<< properties >>
+string FIXED_BBOX -563 -1729 563 1729
+string gencell sky130_fd_pr__res_xhigh_po_0p35
+string library sky130
+string parameters w 0.350 l 12 m 1 nx 6 wmin 0.350 lmin 0.50 class resistor rho 2000 val 69.646k dummy 0 dw 0.0 term 188.2 sterm 0.0 caplen 0 wmax 0.350 guard 1 glc 1 grc 1 gtc 1 gbc 1 compatible {sky130_fd_pr__res_xhigh_po_0p35  sky130_fd_pr__res_xhigh_po_0p69 sky130_fd_pr__res_xhigh_po_1p41  sky130_fd_pr__res_xhigh_po_2p85 sky130_fd_pr__res_xhigh_po_5p73} snake 0 full_metal 1 n_guard 0 hv_guard 0 vias 1 viagb 0 viagt 0 viagl 0 viagr 0 doports 1
+<< end >>
