@@ -2,7 +2,7 @@
 Bachelor of Computer Engineering - Final Year Project (TP065525)
 
 > **⚠️ Student project disclaimer:**
-> This repository documents an academic Final Year Project (FYP) completed in partial fulfilment of a B.Eng (Hons) Computer Engineering degree. It is shared for educational and portfolio purposes only. The design has **not been fabricated or silicon-validated** — all results are from schematic- and post-layout (parasitic-extracted) simulation only. Use at your own risk; no warranty of correctness, manufacturability, or fitness for any application is provided.
+> This repository documents an academic Final Year Project (FYP) completed in partial fulfilment of a B.Eng (Hons) Computer Engineering degree. It is shared for educational and portfolio purposes only. The design has **not been fabricated or silicon-validated**. All results are from schematic- and post-layout (parasitic-extracted) simulation only. Use at your own risk; no warranty of correctness, manufacturability, or fitness for any application is provided.
 
 ---
 
