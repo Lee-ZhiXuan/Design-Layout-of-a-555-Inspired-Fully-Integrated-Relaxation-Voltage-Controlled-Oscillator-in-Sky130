@@ -52,23 +52,143 @@ The circuit is broken into 6 blocks:
 
 **Design flow:** Xschem (schematic capture) → ngspice (simulation) → Magic VLSI (physical layout) → DRC/LVS (layout verification), entirely on open-source tooling using the Sky130 PDK.
 
-**High-level design schematic:**
+### High-level design schematic:
 
 <img width="933" height="777" alt="block1" src="https://github.com/user-attachments/assets/3cafa699-3394-4a85-9a44-d434f2bd5562" />
 
-**Full design layout in Magic VLSI with labels:**
+### Full design layout in Magic VLSI with labels:
 
 <img width="735" height="931" alt="full_lay2_label2" src="https://github.com/user-attachments/assets/32a383da-7bc5-46f9-b95b-0a4ac7dc7699" />
 
-**Schematic in Xschem (subblocks symbolized):**
+### Schematic in Xschem (subblocks symbolized):
 
 <img width="1055" height="765" alt="full_sch" src="https://github.com/user-attachments/assets/a4924689-6299-43e7-b717-84ec1b3ac91b" />
 
 Images of transistor-level schematics of each of the blocks can be found in the "images" subfolder.
 
-## Performance Results
+## Circuit Simulation Results (Post-PEX)
 
-Post-layout (parasitic-extracted) simulation results 
+### Oscillator Output
+
+<img width="431" height="420" alt="out1" src="https://github.com/user-attachments/assets/e45f119b-8ecb-464f-974f-42b03459a3f0" />
+
+### PTAT Currents vs Traditional Resistive Biasing across Temperature Range
+
+<img width="408" height="420" alt="ptat_out1" src="https://github.com/user-attachments/assets/af26fb4c-79ee-4d76-a477-6af237e94931" />
+
+### Comparator Blocks Output
+
+<img width="696" height="555" alt="image" src="https://github.com/user-attachments/assets/234bbf42-8b83-4c8f-a0da-d9acd95f6727" />
+
+### Circuit Specifications Sheet
+
+| Parameter  | Description             | Min   | Nom     | Max  | Unit | Conditions                              |
+|------------|--------------------------|------:|--------:|-----:|:----:|------------------------------------------|
+| VDD        | Supply voltage           | 1.62  | 1.8     | –    | V    | T = -40 to 125 °C                        |
+| VWINDOW    | Threshold window size    | 0.1   | –       | 1.6  | V    | VDD = 1.8 V                              |
+| VCONTROL   | Control voltage          | 0.1   | –       | 0.85 | V    | VDD = 1.8 V                              |
+| ƒo         | Output frequency         | 2.06  | 5.99    | 10.03| MHz  | T = 27 °C, VDD = 1.8 V                   |
+| T          | Operating temperature    | -40   | 27      | 125  | °C   | –                                         |
+| Ptotal     | Total power dissipation  | –     | 54.2028 | –    | µW   | T = 27 °C, VDD = 1.8 V, VCONTROL = 0.6 V  |
+| VOL        | Low output voltage       | –     | 0       | –    | V    | T = -40 to 125 °C                        |
+| VOH        | High output voltage      | –     | VDD     | –    | V    | T = -40 to 125 °C                        |
+
+
+## Performance Test Results
+
+In line with project objectives of a VCO suitable for low-power IoT devices and sensor nodes, the proposed relaxation VCO was tested for reliable operations under realistic stress conditions such as environments where temperature and power may be inconsistent. Additionally, testing also covered the manufacturability of the proposed VCO circuit in simulated realistic silicon conditions, where fabrication variations and imperfections may affect overall circuit performance.
+
+To thoroughly evaluate the robustness of the proposed VCO circuit, five distinct tests were conducted:
+- Statistical process variation test through Monte Carlo for yield estimations.
+- Deterministic process corner test for process worst-case scenarios.
+- Supply rail voltage DC variation and AC noise test.
+- Temperature variation test.
+- Output jitter characterization to determine the VCO’s frequency stability in long transients as it can influence sampling frequency and communication reliability.
+
+### Statistical Process Variation Test through Monte Carlo & Yield Estimations
+
+Monte Carlo analysis (1000 runs, post-PEX netlist, both inter-die and intra-die variation enabled) was used to quantify yield at the mid-point operating frequency (VDD = 1.8 V, VCONTROL = 0.6 V, ~6 MHz target). 
+
+The resulting frequency distribution was approximately normal, with a mean of 5.851 MHz and a standard deviation of 0.518 MHz, giving a ±3σ spread of 26.5%. However, because the VCO's tuning range comfortably exceeds this ±3σ spread (by around 61%), out-of-spec dies can be pulled back into the target frequency via VCONTROL adjustment, yielding an effective >99.7% yield at the mid-point frequency. The weak frequency–current correlation (Pearson r = 0.221) confirmed that current draw is dominated by the near-constant biasing blocks (PTAT, comparators, op-amp) rather than switching frequency.
+
+<img width="591" height="478" alt="image" src="https://github.com/user-attachments/assets/623dd4d2-b0df-4d53-b6ae-5a03b641a24d" />
+<img width="563" height="448" alt="image" src="https://github.com/user-attachments/assets/5d31b7e9-c147-4133-a8be-569b82451060" />
+
+Because mid-point yield doesn't guarantee performance at the tuning extremes, smaller 100-sample MC runs were also run at the minimum (~2 MHz) and maximum (~10 MHz) target frequencies. Raw yield was asymmetric, where 89% of samples met the lower-extreme nominal range versus only 49% at the upper extreme, with the upper-extreme mean falling short of the 10 MHz target, indicating the design is inherently more stable at lower frequencies. As with the mid-point case, most out-of-range dies could be recovered through VCONTROL calibration, raising effective yield to 91% at the lower extreme and 60% at the upper extreme. Supply current at both extremes remained tightly clustered with heavy distribution overlap, reinforcing that oscillation frequency has only a minor effect on total current dissipation.
+
+<img width="619" height="516" alt="image" src="https://github.com/user-attachments/assets/b5fd5488-42ea-42a9-bc42-c8cb55da5335" />
+
+### Deterministic Process Corner Test
+
+Process corner analysis evaluates the VCO's deterministic worst-case behavior across Sky130's five defined process corners (TT, FF, SS, FS, SF), checking whether the circuit still meets its frequency range and remains stable without runaway behavior at each extreme. Using the same nominal-VDD, 2 μs transient setup as the MC test, each corner was swept at three VCONTROL points (0.1 V, 0.6 V, 0.85 V). 
+
+Results showed PMOS devices dominate oscillation speed, since SF (slow NMOS/fast PMOS) outperformed FS (fast NMOS/slow PMOS) in frequency; SS was the slowest corner as expected, with deviation from TT growing sharply at higher target frequencies rather than lower ones. The most significant finding was that the FF corner failed to oscillate at mid-to-high target frequencies, likely due to comparator latch-up, though this extreme corner is unlikely to represent typical silicon given the tight MC yield already established. Supply current remained largely stable across corners and frequency settings, and interestingly, FF and SF slightly outperformed TT at the lowest frequency setting due to reduced PMOS-driven bottlenecking.
+
+<img width="637" height="350" alt="image" src="https://github.com/user-attachments/assets/2a382d68-678d-4963-acc8-df1f5c4da141" />
+<img width="614" height="431" alt="image" src="https://github.com/user-attachments/assets/0f02221c-cf6b-4dd8-abee-1370278c9c9b" />
+
+### Voltage DC Variation & AC Noise Test
+
+Supply voltage stability is a practical concern for real-world IoT and energy-harvesting systems, where VDD can drift from nominal due to regulator tolerance, load transients, or ambient noise. Two tests characterized this: a DC sweep of ±10% around nominal 1.8 V (1.62 V–1.98 V in 5% steps, post-PEX at TT corner, 27 °C) across the low, mid, and high frequency points, and an AC noise-injection test on the VDD rail. 
+
+Under DC variation, the VCO held consistent frequency at low-to-mid target frequencies (2–6 MHz) across the full ±10% range, but at the high-frequency target it fell short of nominal under under-voltage conditions while remaining accurate under over-voltage. This was traced to the thresholding circuit's lower and upper thresholds swapping order near low VDD, which breaks the mirrored-threshold behavior and causes the capacitor to instead swing between VCONTROL and ground, lowering the effective frequency.
+
+<img width="774" height="377" alt="image" src="https://github.com/user-attachments/assets/f04a34d2-a5c1-474a-82f9-a11306151967" />
+
+Supply current scaled roughly linearly with VDD, and since low-to-mid frequency accuracy held even at reduced voltage, undervolting emerged as a notable power-saving opportunity: at 1.62 V the circuit drew only 37.26 µW versus 54.20 µW at nominal, though this isn't proposed as a new operating point since the Sky130 devices aren't characterized or guaranteed for operation below their intended voltage range.
+
+Separately, injecting a 1 MHz, 50 mVPP sinusoidal ripple onto VDD (mimicking switching-regulator noise) showed the VCO remained functional with consistent oscillation frequency across all tested output frequencies; the only visible effect was slight amplitude modulation at the top of the output waveform tracking the injected ripple, with no disruption to timing.
+
+<img width="773" height="308" alt="image" src="https://github.com/user-attachments/assets/a6068eb6-da89-4ad7-b344-31faecb0568e" />
+
+### Temperature Variation Test
+
+Temperature affects key transistor parameters such as threshold voltage, carrier mobility, and leakage which shifts output frequency. This test swept temperature across 8 points spanning the full -40 °C to 125 °C industrial/automotive range (nominal VDD 1.8 V, TT corner), at the low, mid, and high target frequency points, both to characterize drift and to validate that the PTAT biasing provides adequate compensation. 
+
+Without VCONTROL calibration, the low and mid-point frequencies stayed close to nominal across the full range, but the high-frequency target broke down at sub-zero temperatures while running above nominal at elevated temperatures. This gave an uncalibrated temperature coefficient of 1821 ppm/°C at mid-point, which the report notes is high for a design with first-order compensation.
+
+<img width="772" height="379" alt="image" src="https://github.com/user-attachments/assets/21c90243-7030-49ed-8475-cd632e676f3b" />
+
+However, applying frequency calibration via VCONTROL (at 0.01 V resolution) brought the coefficient down to 101.2 ppm/°C. Supply current rose gently and linearly with temperature, consistent with expected PTAT behavior and confirming the biasing block is compensating correctly across the specified temperature range.
+
+<img width="607" height="460" alt="image" src="https://github.com/user-attachments/assets/183b7904-0fc2-4a1e-aa30-130463f47b38" />
+
+### Deterministic Jitter Test
+
+Three jitter metrics were characterized: cycle-to-cycle jitter (variation between adjacent periods), RMS jitter (statistical spread across all periods), and peak-to-peak jitter (worst-case deviation). Testing was done at nominal VDD (1.8 V), TT corner, and room temperature across the minimum, mid-point, and maximum tuning points, using a long transient capturing 150 cycles with edge timing extracted and post-processed in MATLAB.
+
+| Tuning Point   | RMS (ps) | C2C (ps) | Pk-Pk (ps) | RMS (ppm) |
+|----------------|---------:|---------:|-----------:|----------:|
+| Low (~2 MHz)   |    27.42 |    40.92 |     200.00 |     54.80 |
+| Mid (~6 MHz)   |    32.67 |    52.00 |     110.00 |    196.00 |
+| High (~10 MHz) |    36.08 |    59.03 |     303.00 |    360.80 |
+
+The results showed strong jitter performance across the board, comfortably within acceptable bounds for clock-generator use. All three metrics worsened slightly at higher frequency, which is physically expected since a shorter period means the same absolute noise contributes a larger fraction of the cycle. It's worth noting, however, that this transient-simulation jitter only captures deterministic variation and excludes thermal and flicker noise, so real silicon jitter is expected to run somewhat higher than these simulated figures.
+
+## Limmitations
+
+The proposed VCO has a few documented limitations that were summarized in the following points:
+- VCO struggles to start at higher target frequencies in the FF corner, which presented as DNF during deterministic process corner tests.
+- The uncalibrated TCF is poor, with noticeable frequency variation across the full temperature range.
+- The maximum frequency degrades substantially at lower than nominal VDD, limiting the frequency ceiling when in low-power mode.
+- While the proposed VCO power dissipation is considered low-power, it is slightly on the higher end with room for optimizations.
+
+## Recommendations
+
+While the circuit achieved all the primary objectives, during implementation it was noticed that several aspects could be further improved given more time on the project. 
+
+Firstly, the total power dissipation can be further reduced by using clocked comparators. The proposed VCO currently uses always-on comparators, meaning the two comparators are constantly drawing current. While an external clock cannot be used as the system is intended to serve as the system clock, the circuit output could be fed back to the two comparators. For example, once the PMOS input comparator has triggered a state change and the output drops of “0”, the signal could be used to shut down the comparator. This will save current until the NMOS comparator is triggered, causing the output to change and the PMOS comparator is turned back on again to prepare for a detection. As the comparators collectively draw around ~12 μW, this clocking method would result in only 1 comparator being on at any given time, cutting the draw to just ~6 μW, or from 54.2 μW to around ~48.2 μW for total VCO consumption.
+
+Next, while the system currently employs a PTAT current reference circuit to provide first-order temperature compensation, it may not be sufficient for extreme applications where absolute output precision and temperature independency is required. Hence, it is recommended that future improvements include a CTAT compensation circuit as well, combining to form a bandgap current reference circuit. While the PTAT provides a current that increases linearly with temperature, CTAT provides a current that decreases linearly with temperature. When properly calibrated together, the bandgap reference will have constant current across the operational temperature range which should substantially improve the uncalibrated TCF of the circuit.
+
+Finally, as custom order fabrication have lead times of up to a year or more, on-chip tests were not conducted for this project. On-chip tests are always preferred as it eliminates all simulation biases and directly demonstrates the feasibility of the proposed design. If time and budget allows, it is highly recommended that future improvements include physical testing prior to any form of mass production and deployment.
+
+## Summary and Conclusion
+
+This project set out to design a low-power, tuneable, fully-integrated relaxation VCO on the open-source Sky130 PDK, inspired by the classic 555 timer topology, and achieved all of its primary objectives. The final design delivers an exceptionally wide 131.79% tuning range (2.06–10.02 MHz) enabled by a novel thresholding circuit, while consuming under 60 µW at nominal 1.8 V and occupying a compact 2,189 µm² active die area. The circuit demonstrated robust startup and strong resilience to PVT variation: Monte Carlo analysis showed >99.7% yield at a 6 MHz target, performance held across the TT, FS, SF, and SS process corners (with only the extreme FF corner failing to start at higher frequencies), and calibrated temperature drift was reduced to 101.2 ppm/°C across the full -40 °C to 125 °C range. Jitter performance was also strong, with RMS jitter as low as 32.67 ps.
+
+By relying entirely on the open Sky130 PDK and an open-source EDA toolchain, this work is designed to be freely reproducible and extensible without requiring institutional or proprietary tool access. In a small way contributing to the open-hardware ecosystem and UN SDG 9 (Industry, Innovation, and Infrastructure) as a reusable timing IP block for future SoC integration. Completing this project end-to-end, from initial proposal through to a tapeout-ready design, was a valuable introduction to practical IC design, and I'm looking forward to continuing to build on it.
+
 
 (Documentaion on Github is currently WIP, original academic documentation not included in project path)
 
